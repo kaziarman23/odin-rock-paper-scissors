@@ -3,14 +3,17 @@ function getComputerChoice(){
     return
 }
 
-getComputerChoice();
+//  getComputerChoice();
 
 
 
 function getplayerChoice(move){
-    if(move = "rock"){
-        console.log("rock");
+    if(move === ""){
+        console.log("paper");
         return
+    }else if(move ="rock"){
+        console.log("rock");
+        return 
     }else if(move ="paper"){
         console.log("paper");
         return 
@@ -20,9 +23,13 @@ function getplayerChoice(move){
     }
     
 }
-getplayerChoice("");
+//  getplayerChoice("");
 
-
+function  playround(playerSelection,computerSelection){
+    let declares = "You are the winner , play again";
+    return declares;
+}
     
-
-
+const playerSelection = prompt(getplayerChoice(""));
+const computerSelection = getComputerChoice();
+console.log(playround(playerSelection,computerSelection));
