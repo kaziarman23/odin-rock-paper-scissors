@@ -48,14 +48,14 @@ function getComputerChoice(){
   
   function logwin(){
     let playerWins = winners.filter(function(item){
-      return item === "Player win the round";
-    }).length;
+      return item === "Player win the round"
+    }).length
     let computerWins = winners.filter(function(item){
-      return item === "Computer win the round";
-    }).length;
+      return item === "Computer win the round"
+    }).length
     let Ties = winners.filter(function(item){
-      return item === "Round Tie";
-    }).length;
+      return item === "Round Tie"
+    }).length
     console.log("Results:");
     console.log("player Wins:", playerWins);
     console.log("Computer Wins:", computerWins);
