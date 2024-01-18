@@ -1,37 +1,26 @@
-const winners =[];
-
-function game(){
-  for(let i = 1; i <= 5; i++){
-    playRound(i)
-  }
-}
-
-function playRound(round){
-    const playerSelection = getplayerchoice()
-    const computerSelection = getcomputerchoice()
-    const winner =winnerCheck(playerSelection,computerSelection)
-    winners.push(winner);
-    logRound(getplayerchoice,getcomputerchoice,winner,round)
-}
-
-function getplayerchoice(){
-  let input =prompt("Type Rock,Paper,Scissor")
-  while(input === null){
-    input = prompt("Please try to understand, Type Rock,Paper,Scissor only")
-  }
-  input.toLocaleLowerCase();
+const buttonRock = document.querySelector(".rock")
+const buttonPaper = document.querySelector(".paper")
+const buttonScissor = document.querySelector(".scissor")
+const roundResult = document.querySelector(".outcome")
   
-  if(input === "rock"){
-    console.log("playerGive:","rock")
-  }else if(input === "paper"){
-    console.log("playerGive:","paper")
-  }else if(input === "scissor"){
-    console.log("playerGive:","scissor")
-  }else{
-    console.log("ahaa dude typing mistake, Try Again")
-  }
-  return input
-}
+
+
+buttonRock.addEventListener("click",function(){
+  const computerSelection = getcomputerchoice()
+  const playerSelection ="rock"
+  playRound(playerSelection,computerSelection)
+})
+buttonPaper.addEventListener("click",function(){
+  const computerSelection = getcomputerchoice()
+  const playerSelection ="paper"
+  playRound(playerSelection,computerSelection)
+})
+buttonScissor.addEventListener("click",function(){
+  const computerSelection = getcomputerchoice()
+  const playerSelection ="scissor"
+  playRound(playerSelection,computerSelection)
+})
+
 
 function getcomputerchoice(){
   let random =Math.ceil(Math.random()*3)
@@ -49,40 +38,27 @@ function getcomputerchoice(){
 }
 
 
-function winnerCheck(choiceP,choiceC){
-
+function playRound(choiceP,choiceC){
+  
   if(choiceP === choiceC){
-    return "Round Tie"
+    const p = document.createElement("p")
+    p.innerText = "Round Tie"
+    roundResult.append(p)
   }
   else if(
-            (choiceP === "rock" && choiceP === "scissor")||
-            (choiceP === "paper" && choiceP === "rock")||
-            (choiceP === "scissor" && choiceP === "paper")
+            (choiceP === "rock" && choiceC === "scissor")||
+            (choiceP === "paper" && choiceC === "rock")||
+            (choiceP === "scissor" && choiceC === "paper")
           )
   {       
-    return "player win the Round"
+    const p = document.createElement("p")
+    p.innerText = "Player win the Round"
+    roundResult.append(p)
   }
-  else{
-    return "computer win the Round"
+  else{      
+    const p = document.createElement("p")
+    p.innerText = "Computer win the Round"
+    roundResult.append(p)
   }
 }
 
-
-function logRound(getplayerchoice,getcomputerchoice,winner,round){
-  let pwin =winners.filter(function (item){
-    return item === "player win the Round"
-  }).length
-  let cwin =winners.filter(function (item){
-    return item === "computer win the Round"
-  }).length
-  let tie =winners.filter(function (item){
-    return item === "Round Tie"
-  }).length
-  console.log("Round",round)
-  console.log("player score:",pwin)
-  console.log("computer score:",cwin)
-  console.log("Tie round:",tie)
-  console.log("........................")
-}
-
-game()
