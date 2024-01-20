@@ -1,20 +1,26 @@
+.score{
+    font-weight: bolder;
+    font-size: larger;
+    display: flex;
+}
+
 .rock{
     padding: 10px;
-    font-size: 15px;
+    font-size: 10px;
     border-radius:10px;
     background-color: black;
     color: white;
 }
 .paper{
     padding: 10px;
-    font-size: 15px;
+    font-size: 10px;
     border-radius:10px;
     background-color: black;
     color: white;
 }
 .scissor{
     padding: 10px;
-    font-size: 15px;
+    font-size: 10px;
     border-radius:10px;
     background-color: black;
     color: white;
@@ -22,5 +28,5 @@
 
 
 .outcome{
-    font-size: 50px;
+    font-size: 25px;
 }
