@@ -66,7 +66,7 @@ function playRound(choiceP,choiceC){
   }
 
   displayScore()
-  cheakWinner()
+  checkWinner()
 }
 
 
@@ -76,7 +76,7 @@ function displayScore(){
 }
 
 
-function cheakWinner(){
+function checkWinner(){
     if( playerScore === 5){
         const h2 =document.createElement("h2")
         h2.innerText ="player win the match, Thanks for playing"
