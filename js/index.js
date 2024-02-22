@@ -3,30 +3,28 @@ const paper = document.querySelector(".paper")
 const scissor = document.querySelector(".scissor")
 const scoreBoard = document.querySelector(".scores")
 const declaretion = document.querySelector(".declaretion")
+const result = document.querySelector(".result")
 
 let playerScore = 0;
 let computerScore = 0;
-let winner =[];
+
 
 rock.addEventListener("click",function(){
   const computerSecletion = getcomputerchoice()
   const playerSecletion = "rock"
-  winnerCheck(playerSecletion,computerSecletion)
-  
+  playGame(playerSecletion,computerSecletion)
 })
 
 paper.addEventListener("click",function(){
   const computerSecletion = getcomputerchoice()
   const playerSecletion = "paper"
-  winnerCheck(playerSecletion,computerSecletion)
-  
+  playGame(playerSecletion,computerSecletion)
 })
 
 scissor.addEventListener("click",function(){
   const computerSecletion = getcomputerchoice()
   const playerSecletion = "scissor"
-  winnerCheck(playerSecletion,computerSecletion)
-  
+  playGame(playerSecletion,computerSecletion)
 })
 
 function getcomputerchoice(){
@@ -43,34 +41,44 @@ function getcomputerchoice(){
   }
 }
 
-function winnerCheck(choiceP , choiceC){
+function playGame(choiceP , choiceC){
   if (choiceP === choiceC){
-    let div = document.createElement("div")
-    div.innerHTML = `<p>Round Tie</p>`
-    declaretion.appendChild(div)
+    declaretion.innerHTML = `<p>Round Tie</p>`
   }
   else if (
     (choiceP === "rock" && choiceC === "scissor")||
     (choiceP === "paper" && choiceC === "rock")||
     (choiceP === "scissor" && choiceC === "paper")
   ){
-    let div = document.createElement("div")
-    div.innerHTML = `<p>Player win the Round</p>`
-    declaretion.appendChild(div)
+    declaretion.innerHTML = `<p>Player win the Round</p>`
     playerScore++
   }
   else{
-    let div = document.createElement("div")
-    div.innerHTML = `<p>Computer win the Round</p>`
-    declaretion.appendChild(div)
+    declaretion.innerHTML = `<p>Computer win the Round</p>`
     computerScore++
   }
   roundScore()
+  checkWinner()
 }
 
 
 function roundScore(){
-  let p = document.createElement("p")
-  p.innerHTML =`Player score:${playerScore} , Computer score:${computerScore}`
-  scoreBoard.appendChild(p) 
+  scoreBoard.innerHTML =`Player score: ${playerScore} , Computer score: ${computerScore}`
+}
+
+function checkWinner(){
+ if(playerScore === 5){
+  result.innerText = "Player win the match"
+  disable_btn()
+ }
+ else if(computerScore === 5){
+  result.innerText = "Computer win the match"
+  disable_btn()
+ }
+}
+
+function disable_btn(){
+  rock.disabled = true;
+  paper.disabled = true;
+  scissor.disabled = true;
 }
