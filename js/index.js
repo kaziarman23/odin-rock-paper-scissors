@@ -12,7 +12,7 @@ rock.addEventListener("click",function(){
   const computerSecletion = getcomputerchoice()
   const playerSecletion = "rock"
   winnerCheck("playerSecletion","computerSecletion")
-  // winner.push(winnerCheck)
+  winner.push(winnerCheck)
 
 })
 
@@ -20,14 +20,16 @@ paper.addEventListener("click",function(){
   const computerSecletion = getcomputerchoice()
   const playerSecletion = "paper"
   winnerCheck("playerSecletion","computerSecletion")
-  // winner.push(winnerCheck)
+  winner.push(winnerCheck)
+  
 })
 
 scissor.addEventListener("click",function(){
   const computerSecletion = getcomputerchoice()
   const playerSecletion = "scissor"
   winnerCheck("playerSecletion","computerSecletion")
-  // winner.push(winnerCheck)
+  winner.push(winnerCheck)
+
 })
 
 function getcomputerchoice(){
@@ -47,18 +49,18 @@ function getcomputerchoice(){
 function winnerCheck(choiceP , choiceC){
   if (choiceP === choiceC){
     let comment = document.createElement("p")
-    p.innerHTML =`<p></p>`
+    
   }
   else if (
     (choiceP === "rock" && choiceC === "scissor")||
     (choiceP === "paper" && choiceC === "rock")||
     (choiceP === "scissor" && choiceC === "paper")
   ){
-    score.innerHTML = `player win the Round`
+    
     playerScore++
   }
   else{
-    score.innerHTML = `computer win the Round`
+    
     computerScore++
   }
 }
