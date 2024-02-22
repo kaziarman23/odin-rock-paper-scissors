@@ -1,10 +1,11 @@
-body{
+body {
     color: black;
     background: cadetblue;
     text-align: center;
     font-weight: bolder;
 }
-button{
+
+.buuton_wrapper button {
     width: 72px;
     height: 30px;
     background-color: olive;
@@ -16,7 +17,22 @@ button{
     margin-top: 30px;
     padding: 5px;
 }
-button:hover{
+
+button:hover {
     color: black;
     background-color: darkseagreen;
+}
+
+.newGame_btn {
+    width: 100px;
+    height: 55px;
+    background-color: olivedrab;
+    color: currentcolor;
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 30px;
+    margin: 0 auto;
+    margin-top: 38px;
+    padding: 5px;
+    display: none;
 }
