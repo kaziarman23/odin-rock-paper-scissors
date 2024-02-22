@@ -1,7 +1,7 @@
 const rock = document.querySelector(".rock")
 const paper = document.querySelector(".paper")
 const scissor = document.querySelector(".scissor")
-const score = document.querySelector(".scoer")
+const scoreBoard = document.querySelector(".scores")
 const declaretion = document.querySelector(".declaretion")
 
 let playerScore = 0;
@@ -13,22 +13,20 @@ rock.addEventListener("click",function(){
   const playerSecletion = "rock"
   winnerCheck(playerSecletion,computerSecletion)
   
-  
 })
 
 paper.addEventListener("click",function(){
   const computerSecletion = getcomputerchoice()
   const playerSecletion = "paper"
   winnerCheck(playerSecletion,computerSecletion)
-
+  
 })
 
 scissor.addEventListener("click",function(){
   const computerSecletion = getcomputerchoice()
   const playerSecletion = "scissor"
   winnerCheck(playerSecletion,computerSecletion)
-
-
+  
 })
 
 function getcomputerchoice(){
@@ -50,7 +48,6 @@ function winnerCheck(choiceP , choiceC){
     let div = document.createElement("div")
     div.innerHTML = `<p>Round Tie</p>`
     declaretion.appendChild(div)
-
   }
   else if (
     (choiceP === "rock" && choiceC === "scissor")||
@@ -68,9 +65,12 @@ function winnerCheck(choiceP , choiceC){
     declaretion.appendChild(div)
     computerScore++
   }
+  roundScore()
 }
 
 
 function roundScore(){
-  score.innerHTML =`player score:${playerScore} ,computer score:${computerScore}` 
+  let p = document.createElement("p")
+  p.innerHTML =`Player score:${playerScore} , Computer score:${computerScore}`
+  scoreBoard.appendChild(p) 
 }
