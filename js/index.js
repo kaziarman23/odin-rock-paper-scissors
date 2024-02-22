@@ -11,24 +11,23 @@ let winner =[];
 rock.addEventListener("click",function(){
   const computerSecletion = getcomputerchoice()
   const playerSecletion = "rock"
-  winnerCheck("playerSecletion","computerSecletion")
-  winner.push(winnerCheck)
-
+  winnerCheck(playerSecletion,computerSecletion)
+  
+  
 })
 
 paper.addEventListener("click",function(){
   const computerSecletion = getcomputerchoice()
   const playerSecletion = "paper"
-  winnerCheck("playerSecletion","computerSecletion")
-  winner.push(winnerCheck)
-  
+  winnerCheck(playerSecletion,computerSecletion)
+
 })
 
 scissor.addEventListener("click",function(){
   const computerSecletion = getcomputerchoice()
   const playerSecletion = "scissor"
-  winnerCheck("playerSecletion","computerSecletion")
-  winner.push(winnerCheck)
+  winnerCheck(playerSecletion,computerSecletion)
+
 
 })
 
@@ -48,19 +47,25 @@ function getcomputerchoice(){
 
 function winnerCheck(choiceP , choiceC){
   if (choiceP === choiceC){
-    let comment = document.createElement("p")
-    
+    let div = document.createElement("div")
+    div.innerHTML = `<p>Round Tie</p>`
+    declaretion.appendChild(div)
+
   }
   else if (
     (choiceP === "rock" && choiceC === "scissor")||
     (choiceP === "paper" && choiceC === "rock")||
     (choiceP === "scissor" && choiceC === "paper")
   ){
-    
+    let div = document.createElement("div")
+    div.innerHTML = `<p>Player win the Round</p>`
+    declaretion.appendChild(div)
     playerScore++
   }
   else{
-    
+    let div = document.createElement("div")
+    div.innerHTML = `<p>Computer win the Round</p>`
+    declaretion.appendChild(div)
     computerScore++
   }
 }
