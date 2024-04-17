@@ -8,14 +8,15 @@ body {
 .buuton_wrapper button {
     width: 72px;
     height: 30px;
-    background-color: olive;
-    color: currentcolor;
+    background-color: black;
+    color: white;
     font-size: 18px;
     border: 1px solid black;
     border-radius: 25px;
     margin-bottom: 30px;
     margin-top: 30px;
     padding: 5px;
+    cursor: pointer;
 }
 
 button:hover {
@@ -26,13 +27,14 @@ button:hover {
 .newGame_btn {
     width: 100px;
     height: 55px;
-    background-color: olivedrab;
-    color: currentcolor;
+    background-color: black;
+    color: white;
     font-size: 20px;
     border: 1px solid black;
     border-radius: 30px;
     margin: 0 auto;
     margin-top: 38px;
     padding: 5px;
+    cursor: pointer;
     display: none;
 }
